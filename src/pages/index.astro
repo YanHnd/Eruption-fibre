@@ -1,0 +1,290 @@
+---
+import '../styles/global.css';
+
+const company = {
+  name: 'Eruption Fibre',
+  tagline: 'Déploiement réseaux télécoms fixes & mobiles',
+  siren: '845 226 877',
+  address: '4 B Allée du Terroir, 63100 Clermont-Ferrand',
+  region: 'Auvergne-Rhône-Alpes',
+};
+
+const services = [
+  {
+    icon: '◉',
+    title: 'Fibre optique',
+    description: 'Tirage, raccordement et mise en service FTTH/FTTO pour opérateurs et collectivités.',
+    accent: true,
+  },
+  {
+    icon: '◎',
+    title: 'Réseaux mobiles',
+    description: "Infrastructures 4G/5G, pylônes, équipements actifs et mise en conformité des sites.",
+    accent: false,
+  },
+  {
+    icon: '⬡',
+    title: 'Génie civil',
+    description: 'Tranchées, fourreaux, chambres de tirage et remise en état des chaussées.',
+    accent: false,
+  },
+  {
+    icon: '⟡',
+    title: 'Maintenance',
+    description: 'Interventions correctives et préventives, dépannage rapide, suivi qualité continu.',
+    accent: false,
+  },
+  {
+    icon: '△',
+    title: 'Études & ingénierie',
+    description: "Faisabilité, relevés terrain, conception de tracés et dossiers techniques complets.",
+    accent: true,
+  },
+];
+
+const stats = [
+  { value: '2019', label: 'Année de création' },
+  { value: '63', label: 'Basés dans le Puy-de-Dôme' },
+  { value: 'SAS', label: 'Structure juridique' },
+  { value: 'AURA', label: "Zone d'intervention" },
+];
+
+const steps = [
+  { num: '01', title: 'Prise de contact', text: 'Analyse de votre cahier des charges et évaluation du projet.' },
+  { num: '02', title: 'Études & planification', text: 'Relevés terrain, conception technique et planning prévisionnel.' },
+  { num: '03', title: 'Exécution terrain', text: 'Déploiement par nos équipes, suivi qualité et reporting régulier.' },
+  { num: '04', title: 'Livraison & SAV', text: 'Remise des livrables, contrôle final et maintenance si besoin.' },
+];
+
+const zones = [
+  { name: 'Puy-de-Dôme', code: '63', main: true },
+  { name: 'Allier', code: '03', main: false },
+  { name: 'Cantal', code: '15', main: false },
+  { name: 'Haute-Loire', code: '43', main: false },
+  { name: 'Loire', code: '42', main: false },
+  { name: 'Rhône', code: '69', main: false },
+];
+---
+
+<html lang="fr">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{company.name} — Sous-traitant réseaux télécoms · Clermont-Ferrand</title>
+    <meta
+      name="description"
+      content="Eruption Fibre, entreprise familiale basée à Clermont-Ferrand, sous-traitant spécialisé dans le déploiement de réseaux télécoms fixes et mobiles en Auvergne-Rhône-Alpes."
+    />
+  </head>
+  <body>
+
+    <!-- ───── NAV ───── -->
+    <header class="topbar" id="top">
+      <div class="wrap topbar-inner">
+        <a class="logo" href="#top">
+          <img src="/logo.svg" alt="Eruption Fibre" width="160" height="40" />
+        </a>
+        <nav class="desktop-nav" aria-label="Navigation principale">
+          <a href="#services">Prestations</a>
+          <a href="#methode">Méthode</a>
+          <a href="#zone">Zone</a>
+          <a class="cta" href="#contact">Nous contacter</a>
+        </nav>
+        <details class="mobile-nav">
+          <summary aria-label="Menu"><span class="burger"><i></i><i></i><i></i></span></summary>
+          <div class="mobile-panel">
+            <a href="#services">Prestations</a>
+            <a href="#methode">Méthode</a>
+            <a href="#zone">Zone</a>
+            <a class="cta" href="#contact">Nous contacter</a>
+          </div>
+        </details>
+      </div>
+    </header>
+
+    <main>
+
+      <!-- ───── HERO (centered, big type) ───── -->
+      <section class="hero">
+        <div class="hero-bg" aria-hidden="true">
+          <div class="fiber-line fl1"></div>
+          <div class="fiber-line fl2"></div>
+          <div class="fiber-line fl3"></div>
+        </div>
+        <div class="wrap hero-center">
+          <span class="chip">Entreprise familiale · Clermont-Ferrand</span>
+          <h1>{company.tagline}</h1>
+          <p class="lead">
+            Sous-traitant de confiance pour le déploiement des réseaux télécoms fixes et mobiles.
+            Nous intervenons en région Auvergne-Rhône-Alpes pour les entreprises et groupes opérateurs.
+          </p>
+          <div class="hero-actions">
+            <a class="cta" href="#contact">Demander un devis</a>
+            <a class="ghost" href="#services">Découvrir nos prestations</a>
+          </div>
+        </div>
+      </section>
+
+      <!-- ───── STATS RIBBON ───── -->
+      <section class="ribbon">
+        <div class="wrap ribbon-row">
+          {stats.map((s) => (
+            <div class="stat">
+              <span class="stat-val">{s.value}</span>
+              <span class="stat-lbl">{s.label}</span>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <!-- ───── SERVICES (bento grid) ───── -->
+      <section id="services" class="block">
+        <div class="wrap">
+          <div class="block-head">
+            <span class="tag">Prestations</span>
+            <h2>Ce que nous faisons</h2>
+            <p>De la fibre au génie civil, nous couvrons l'ensemble de la chaîne de déploiement.</p>
+          </div>
+          <div class="bento">
+            {services.map((s, i) => (
+              <article class:list={['bento-card', { 'bento-wide': s.accent }]}>
+                <span class="bento-icon">{s.icon}</span>
+                <h3>{s.title}</h3>
+                <p>{s.description}</p>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <!-- ───── METHOD (timeline) ───── -->
+      <section id="methode" class="block block-dark">
+        <div class="wrap">
+          <div class="block-head">
+            <span class="tag">Méthode</span>
+            <h2>Notre façon de travailler</h2>
+            <p>Un processus clair, du premier appel à la livraison finale.</p>
+          </div>
+          <div class="timeline">
+            {steps.map((st) => (
+              <div class="tl-step">
+                <span class="tl-num">{st.num}</span>
+                <div class="tl-content">
+                  <h3>{st.title}</h3>
+                  <p>{st.text}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <!-- ───── ABOUT (side-by-side) ───── -->
+      <section class="block">
+        <div class="wrap about-grid">
+          <div class="about-text">
+            <span class="tag">L'entreprise</span>
+            <h2>Une structure familiale, une exigence professionnelle</h2>
+            <p>
+              Fondée en 2019 à Clermont-Ferrand, Eruption Fibre est née de la volonté de proposer un service
+              de sous-traitance télécom réactif, fiable et humain. Notre taille nous permet d'offrir un suivi
+              direct et personnalisé à chaque donneur d'ordre.
+            </p>
+            <p>
+              Nous collaborons avec les principaux groupes en charge du déploiement des réseaux fixes et mobiles,
+              en apportant rigueur d'exécution et respect des délais.
+            </p>
+          </div>
+          <div class="about-facts">
+            <div class="fact"><span class="fact-k">Forme</span><span class="fact-v">SAS — Capital 5 000 €</span></div>
+            <div class="fact"><span class="fact-k">SIREN</span><span class="fact-v">845 226 877</span></div>
+            <div class="fact"><span class="fact-k">NAF</span><span class="fact-v">4222Z — Réseaux électriques & télécoms</span></div>
+            <div class="fact"><span class="fact-k">RCS</span><span class="fact-v">Clermont-Ferrand</span></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ───── ZONE ───── -->
+      <section id="zone" class="block block-dark">
+        <div class="wrap">
+          <div class="block-head">
+            <span class="tag">Zone d'intervention</span>
+            <h2>Auvergne & départements limitrophes</h2>
+            <p>Nos équipes se déplacent sur l'ensemble de la région et au-delà selon vos besoins.</p>
+          </div>
+          <div class="zone-grid">
+            {zones.map((z) => (
+              <div class:list={['zone-card', { 'zone-main': z.main }]}>
+                <span class="zone-code">{z.code}</span>
+                <span class="zone-name">{z.name}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <!-- ───── CONTACT ───── -->
+      <section id="contact" class="block">
+        <div class="wrap contact-layout">
+          <div class="contact-info">
+            <span class="tag">Contact</span>
+            <h2>Parlons de votre projet</h2>
+            <p>
+              Décrivez votre chantier et vos contraintes. Nous revenons vers vous avec un plan d'action clair.
+            </p>
+            <address class="addr">
+              <div class="addr-row"><strong>Adresse</strong><span>4 B Allée du Terroir, 63100 Clermont-Ferrand</span></div>
+              <div class="addr-row"><strong>Région</strong><span>Auvergne-Rhône-Alpes</span></div>
+            </address>
+          </div>
+          <form class="contact-form" method="post" action="#">
+            <div class="form-row">
+              <label class="field"><span>Nom</span><input name="name" type="text" autocomplete="name" required /></label>
+              <label class="field"><span>Email</span><input name="email" type="email" autocomplete="email" required /></label>
+            </div>
+            <label class="field"><span>Téléphone</span><input name="phone" type="tel" autocomplete="tel" /></label>
+            <label class="field"><span>Message</span><textarea name="message" rows="5" required></textarea></label>
+            <button class="cta" type="submit">Envoyer le message</button>
+          </form>
+        </div>
+      </section>
+
+    </main>
+
+    <!-- ───── FOOTER ───── -->
+    <footer class="site-footer">
+      <div class="wrap footer-grid">
+        <div class="footer-brand">
+          <img src="/logo.svg" alt="Eruption Fibre" width="140" height="36" />
+          <p>Sous-traitant spécialisé en déploiement de réseaux télécoms fixes et mobiles.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Navigation</h4>
+          <a href="#services">Prestations</a>
+          <a href="#methode">Méthode</a>
+          <a href="#zone">Zone</a>
+          <a href="#contact">Contact</a>
+        </div>
+        <div class="footer-col">
+          <h4>Prestations</h4>
+          {services.slice(0, 4).map((s) => (
+            <a href="#services">{s.title}</a>
+          ))}
+        </div>
+        <div class="footer-col">
+          <h4>Informations</h4>
+          <span>SIREN 845 226 877</span>
+          <span>NAF 4222Z</span>
+          <span>RCS Clermont-Ferrand</span>
+          <span>SAS — Capital 5 000 €</span>
+        </div>
+      </div>
+      <div class="wrap footer-bottom">
+        <p>&copy; {new Date().getFullYear()} {company.name}. Tous droits réservés.</p>
+      </div>
+    </footer>
+
+  </body>
+</html>

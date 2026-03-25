@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 280 60" fill="none">
+  <!-- Volcano/fiber icon mark -->
+  <g transform="translate(4, 4)">
+    <!-- Base mountain shape -->
+    <path d="M26 48L10 48L18 28L26 8L34 28L42 48L26 48Z" fill="#1a1a1a" stroke="#ff6a00" stroke-width="1.5"/>
+    <!-- Erupting fiber lines -->
+    <path d="M26 8C26 8 22 -2 18 -2" stroke="#ff6a00" stroke-width="2.5" stroke-linecap="round" fill="none">
+      <animate attributeName="d" values="M26 8C26 8 22 -2 18 -2;M26 8C26 8 20 -4 16 -3;M26 8C26 8 22 -2 18 -2" dur="3s" repeatCount="indefinite"/>
+    </path>
+    <path d="M26 8C26 8 26 -4 26 -6" stroke="#ff8a3d" stroke-width="2" stroke-linecap="round" fill="none">
+      <animate attributeName="d" values="M26 8C26 8 26 -4 26 -6;M26 8C26 8 27 -6 27 -8;M26 8C26 8 26 -4 26 -6" dur="2.5s" repeatCount="indefinite"/>
+    </path>
+    <path d="M26 8C26 8 30 -2 34 -2" stroke="#ff6a00" stroke-width="2.5" stroke-linecap="round" fill="none">
+      <animate attributeName="d" values="M26 8C26 8 30 -2 34 -2;M26 8C26 8 32 -4 36 -3;M26 8C26 8 30 -2 34 -2" dur="3.2s" repeatCount="indefinite"/>
+    </path>
+    <!-- Fiber optic dots at tips -->
+    <circle cx="18" cy="-2" r="2.5" fill="#ff6a00" opacity="0.9">
+      <animate attributeName="opacity" values="0.9;0.4;0.9" dur="3s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="26" cy="-6" r="2" fill="#ff8a3d" opacity="0.8">
+      <animate attributeName="opacity" values="0.8;0.3;0.8" dur="2.5s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="34" cy="-2" r="2.5" fill="#ff6a00" opacity="0.9">
+      <animate attributeName="opacity" values="0.9;0.4;0.9" dur="3.2s" repeatCount="indefinite"/>
+    </circle>
+    <!-- Inner glow -->
+    <ellipse cx="26" cy="38" rx="8" ry="4" fill="#ff6a00" opacity="0.15"/>
+  </g>
+  <!-- Text -->
+  <text x="60" y="30" font-family="system-ui, -apple-system, sans-serif" font-size="26" font-weight="900" fill="white" letter-spacing="-0.5">
+    ERUPTION
+  </text>
+  <text x="60" y="50" font-family="system-ui, -apple-system, sans-serif" font-size="14" font-weight="700" fill="#ff6a00" letter-spacing="4">
+    FIBRE
+  </text>
+</svg>
